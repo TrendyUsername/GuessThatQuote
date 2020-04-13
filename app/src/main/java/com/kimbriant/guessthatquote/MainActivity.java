@@ -6,11 +6,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
+
+import androidx.preference.*;
 
 public class MainActivity extends AppCompatActivity {
     Button play;
     Button settings;
     Button about;
+    TextView display;
+    Preference playerData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,8 +28,9 @@ public class MainActivity extends AppCompatActivity {
         play.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent games = new Intent(MainActivity.this, GameActivity.class);
+                Intent games = new Intent(MainActivity.this, SetUpActivity.class);
                 startActivity(games);
+
             }
         });
     }

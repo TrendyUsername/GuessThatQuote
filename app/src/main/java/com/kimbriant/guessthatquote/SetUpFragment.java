@@ -23,13 +23,15 @@ public class SetUpFragment extends Fragment {
     SharedPreferences.Editor player_data_editor;
     private String _myTag;
     boolean submitted;
+    PassMeData dataPasser;
+
+    public interface PassMeData {
+        public void passMeData(String data);
+    }
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return super.onCreateView(R.layout.set_name container, false);
-        Context globalContext = getActivity();
-        player_data = PreferenceManager.getDefaultSharedPreferences(globalContext);
-        player_data_editor = player_data.edit();
+        return inflater.inflate(R.layout.set_name, container, false);
     }
 
     @Override
@@ -38,6 +40,9 @@ public class SetUpFragment extends Fragment {
         setText = view.findViewById(R.id.setTitle);
         name = view.findViewById(R.id.name);
         confirm = view.findViewById(R.id.confirm);
+        player_data = PreferenceManager.getDefaultSharedPreferences(this.getContext());
+        player_data_editor = player_data.edit();
+        confirm.setOnClickListener(new ClickListening());
     }
 
     private class ClickListening implements View.OnClickListener {
@@ -46,8 +51,17 @@ public class SetUpFragment extends Fragment {
             String actualName = name.getText().toString();
             player_data_editor.putString("name", actualName);
             player_data_editor.commit();
+            passData("Shizz!");
             submitted = true;
         }
+    }
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+
+
+        dataPasser = (PassMeData) context;
     }
 
     public void set_myTag(String value) {
@@ -55,5 +69,9 @@ public class SetUpFragment extends Fragment {
             return;
         }
         _myTag = value;
+    }
+
+    public void passData(String data) {
+        dataPasser.passMeData(data);
     }
 }

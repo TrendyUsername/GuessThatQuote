@@ -1,13 +1,14 @@
 package com.kimbriant.guessthatquote;
 
 import android.os.Bundle;
+import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
-public class SetUpActivity extends AppCompatActivity {
+public class SetUpActivity extends AppCompatActivity implements SetUpFragment.PassMeData {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -19,8 +20,11 @@ public class SetUpActivity extends AppCompatActivity {
     public void onAttachFragment(@NonNull Fragment fragment) {
         super.onAttachFragment(fragment);
         assert fragment.getTag() != null;
-        if(fragment.getTag().contains("SETUP")) {
-
-        }
     }
+
+    @Override
+    public void passMeData(String data) {
+        Log.d("LOG", "WASS?");
+    }
+
 }

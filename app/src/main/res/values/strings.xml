@@ -5,4 +5,5 @@
     <string name="about">About</string>
     <string name="whats_your_name">What is your name?</string>
     <string name="title">Guess That Quote</string>
+    <string name="next">Next</string>
 </resources>

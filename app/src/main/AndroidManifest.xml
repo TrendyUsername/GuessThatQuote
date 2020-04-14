@@ -22,6 +22,9 @@
         <activity android:name=".SetUpActivity">
 
         </activity>
+        <activity android:name=".PickingActivity">
+
+        </activity>
     </application>
 
 </manifest>

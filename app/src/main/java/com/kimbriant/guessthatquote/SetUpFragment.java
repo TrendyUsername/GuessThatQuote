@@ -1,6 +1,7 @@
 package com.kimbriant.guessthatquote;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -53,6 +54,7 @@ public class SetUpFragment extends Fragment {
             player_data_editor.commit();
             passData("Shizz!");
             submitted = true;
+
         }
     }
 

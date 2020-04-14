@@ -1,5 +1,6 @@
 package com.kimbriant.guessthatquote;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -25,6 +26,8 @@ public class SetUpActivity extends AppCompatActivity implements SetUpFragment.Pa
     @Override
     public void passMeData(String data) {
         Log.d("LOG", "WASS?");
+        Intent switchToPicker = new Intent(this, PickingActivity.class);
+        startActivity(switchToPicker);
     }
 
 }

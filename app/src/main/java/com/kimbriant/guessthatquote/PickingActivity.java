@@ -3,6 +3,8 @@ package com.kimbriant.guessthatquote;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -28,6 +30,7 @@ public class PickingActivity extends AppCompatActivity {
     Gson gson = new Gson();
     private int ran;
     private int shqip;
+    private QuestionsAndAnswers randomQuestion;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -49,21 +52,21 @@ public class PickingActivity extends AppCompatActivity {
         initiateArrayOfQuestions();
 
 
-        while(containsQuestionNotSolved(questionsAndAnswers) && shqip == 0) {
-            QuestionsAndAnswers randomQuestion = questionsAndAnswers.get(new Random().nextInt(questionsAndAnswers.size()));
-            if(randomQuestion.isSolved()) {
-                questionsAndAnswers.remove(randomQuestion);
-                while(randomQuestion.isSolved()) {
-                    randomQuestion = questionsAndAnswers.get(new Random().nextInt(questionsAndAnswers.size()));
-                }
-            } else {
-                quote.setText(randomQuestion.getQuote());
-                firstButton.setText(randomQuestion.getAnswers()[0]);
-                secondButton.setText(randomQuestion.getAnswers()[1]);
-                thirdButton.setText(randomQuestion.getAnswers()[2]);
-                fourthButton.setText(randomQuestion.getAnswers()[3]);
-                shqip++;
-            }
+        if(!questionsAndAnswers.isEmpty()) {
+            randomQuestion = questionsAndAnswers.get(new Random().nextInt(questionsAndAnswers.size()));
+            randomQuestion = questionsAndAnswers.get(new Random().nextInt(questionsAndAnswers.size()));
+            quote.setText(randomQuestion.getQuote());
+            firstButton.setText(randomQuestion.getAnswers()[0]);
+            secondButton.setText(randomQuestion.getAnswers()[1]);
+            thirdButton.setText(randomQuestion.getAnswers()[2]);
+            fourthButton.setText(randomQuestion.getAnswers()[3]);
+            firstButton.setOnClickListener( new ImpressiveButtonClick());
+            secondButton.setOnClickListener(new ImpressiveButtonClick());
+            thirdButton.setOnClickListener(new ImpressiveButtonClick());
+            fourthButton.setOnClickListener(new ImpressiveButtonClick());
+            shqip++;
+        } else {
+
         }
     }
 
@@ -85,5 +88,44 @@ public class PickingActivity extends AppCompatActivity {
         }
         ran++;
 
+    }
+
+    class ImpressiveButtonClick implements View.OnClickListener {
+        @Override
+        public void onClick(View v) {
+            switch(v.getId()) {
+                case R.id.firstOption:
+                    if(randomQuestion.getSolution() == 0) {
+                        System.out.println("Yes!");
+                        playerManager.putInt("score", playerData.getInt("score", 69000) + 1);
+                        playerManager.commit();
+                        System.out.println(playerData.getInt("score", 1341540189));
+                    } else {
+                        System.out.println("No!");
+                    }
+                    break;
+                case R.id.secondOption:
+                    if(randomQuestion.getSolution() == 1) {
+                        System.out.println("Yes. Author 2");
+                    } else {
+                        System.out.println("No!");
+                    }
+                    break;
+                case R.id.thirdOption:
+                    if(randomQuestion.getSolution() == 2) {
+                        System.out.println("Yes. Author 3");
+                    } else {
+                        System.out.println("No!");
+                    }
+                    break;
+                case R.id.fourthOption:
+                    if(randomQuestion.getSolution() == 3) {
+                        System.out.println("Yes. Author 4.");
+                    } else {
+                        System.out.println("Capitalism");
+                    }
+                    break;
+            }
+        }
     }
 }

@@ -8,6 +8,8 @@
     <string name="next">Next</string>
     <string-array name="questions_and_answers_in_JSON_format">
         <item>{\'answers\':[\'Confucius\',\'Lincoln\',\'Netizsche\',\'FDR\'],\'solution\':0,\'solved\':false,\'quote\':\'Everything has beauty, but not everyone sees it.\'}</item>
+        <item>{\'answers\': [\'Joseph Stalin\', \'Abraham Lincoln\', \'Oscar Wilde\', \'Albert Einstein\'],\'solution\': 2,\'solved\': false,\'quote\': \'The books that the world calls immoral are books that show the world its own shame.\'}</item>
     </string-array>
+    <string name="go">go to title</string>
 
 </resources>

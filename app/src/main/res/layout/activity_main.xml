@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 
     <TextView
-        android:id="@+id/title"
+        android:id="@+id/title_end"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
@@ -26,7 +26,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/title"
+        app:layout_constraintTop_toBottomOf="@+id/title_end"
         app:layout_constraintVertical_bias="0.2" />
 
     <Button
@@ -50,5 +50,16 @@
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/settings" />
+
+    <Button
+        android:id="@+id/resetter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="38dp"
+        android:text="RESET"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

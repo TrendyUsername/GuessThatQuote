@@ -9,8 +9,6 @@ import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
-import org.w3c.dom.Text;
-
 public class GameFragment extends Fragment {
     TextView title;
     TextView quote;
@@ -25,7 +23,7 @@ public class GameFragment extends Fragment {
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
-        title = (TextView)view.findViewById(R.id.title);
+        title = (TextView)view.findViewById(R.id.title_end);
         quote = (TextView)view.findViewById(R.id.quote);
         firstOption = (Button)view.findViewById(R.id.firstOption);
         secondOption = (Button)view.findViewById(R.id.secondOption);

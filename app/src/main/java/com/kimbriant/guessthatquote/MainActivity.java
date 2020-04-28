@@ -14,6 +14,7 @@ public class MainActivity extends AppCompatActivity {
     Button play;
     Button settings;
     Button about;
+    Button resetter;
     TextView display;
     Preference playerData;
 
@@ -24,6 +25,13 @@ public class MainActivity extends AppCompatActivity {
         play = findViewById(R.id.play);
         settings = findViewById(R.id.settings);
         about = findViewById(R.id.about);
+        resetter = findViewById(R.id.resetter);
+        resetter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).edit().clear();
+            }
+        });
         play.setWidth(300);
         play.setOnClickListener(new View.OnClickListener() {
             @Override

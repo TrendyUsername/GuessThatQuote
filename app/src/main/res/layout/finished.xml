@@ -6,41 +6,35 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/verify"
+        android:id="@+id/title_end"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="196dp"
-        android:layout_marginBottom="29dp"
+        android:layout_marginTop="103dp"
         android:text="TextView"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/quoteholder"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/clickNext"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="167dp"
-        android:layout_marginEnd="162dp"
-        android:backgroundTint="#17B671"
-        android:text="@string/next"
-        android:textSize="28sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/verify" />
 
     <TextView
-        android:id="@+id/quoteholder"
+        android:id="@+id/score"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="252dp"
-        android:layout_marginBottom="460dp"
+        android:layout_marginTop="73dp"
         android:text="TextView"
-        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/title_end" />
+
+    <Button
+        android:id="@+id/getmeout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="123dp"
+        android:text="@string/go"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/score" />
 </androidx.constraintlayout.widget.ConstraintLayout>

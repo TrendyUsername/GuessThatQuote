@@ -29,6 +29,10 @@
         <activity android:name=".NextActivity">
 
         </activity>
+
+        <activity android:name=".FinishedActivity">
+
+        </activity>
     </application>
 
 </manifest>

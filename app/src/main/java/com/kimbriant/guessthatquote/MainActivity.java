@@ -23,15 +23,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         play = findViewById(R.id.play);
-        settings = findViewById(R.id.settings);
-        about = findViewById(R.id.about);
-        resetter = findViewById(R.id.resetter);
-        resetter.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                PreferenceManager.getDefaultSharedPreferences(getApplicationContext()).edit().clear();
-            }
-        });
         play.setWidth(300);
         play.setOnClickListener(new View.OnClickListener() {
             @Override

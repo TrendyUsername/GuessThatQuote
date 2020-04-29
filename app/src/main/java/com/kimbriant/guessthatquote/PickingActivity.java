@@ -92,6 +92,7 @@ public class PickingActivity extends AppCompatActivity {
             questionsAndAnswers.remove(randomQuestion);
             playerManager.remove(randomQuestion.getQuote());
             String removedArrList = gson.toJson(questionsAndAnswers);
+            Log.d("the list", questionsAndAnswers.toString());
             if(playerData.getInt("numTimesRan", 1992) != 0) {
                 String gsonify = playerData.getString("currQue", "I can put anything in here, right..");
                 ArrayList<QuestionsAndAnswers> awesome = gson.fromJson(gsonify, new TypeToken<ArrayList<QuestionsAndAnswers>>() {
@@ -105,16 +106,16 @@ public class PickingActivity extends AppCompatActivity {
             playerManager.putInt("numTimesRan", playerData.getInt("score", 0) + 1);
             shqip++;
         } else {
-            Log.v("I have no mouth scream", "ah");
-            Intent i = new Intent(this, Finished.class);
+            Intent i = new Intent(this, FinishedActivity.class);
+            startActivity(i);
         }
     }
 
-    @Override
-    public void onSaveInstanceState(@NonNull Bundle outState, @NonNull PersistableBundle outPersistentState) {
-        super.onSaveInstanceState(outState, outPersistentState);
-        outState.putInt("numrun", ran++);
-    }
+//    @Override
+//    public void onSaveInstanceState(@NonNull  stentState) {
+//        super.onSaveInstanceState(outState, outPersistentState);
+//        outState.putInt("numrun", ran++);
+//    }
 
     public boolean containsQuestionNotSolved(final List<QuestionsAndAnswers> list) {
         for(QuestionsAndAnswers qanda : list) {

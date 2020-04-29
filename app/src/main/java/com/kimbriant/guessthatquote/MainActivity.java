@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     Button resetter;
     TextView display;
     Preference playerData;
+    ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
